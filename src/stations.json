@@ -1,0 +1,176 @@
+{
+    "stations": [
+        {
+            "name": "ศาลา6เหลี่ยม",
+            "line": ["red", "blue", "green"]
+        },
+        {
+            "name": "สามบูรพาจารย์",
+            "line": ["red", "blue", "green"]
+        },
+        {
+            "name": "ประตูงาม 1",
+            "line": ["red", "blue", "green", "yellow"]
+        },
+        {
+            "name": "คณะเศรษฐศาสตร์",
+            "line": ["red", "blue", "yellow"]
+        },
+        {
+            "name": "คณะวิศวกรรมศาสตร์",
+            "line": ["red", "blue", "yellow"]
+        },
+        {
+            "name": "สำนักหอสมุด",
+            "line": ["red", "blue", "green", "yellow", "pink"]
+        },
+        {
+            "name": "พุทธเกษตร",
+            "line": ["red", "blue", "green", "yellow", "pink"]
+        },
+        {
+            "name": "อาคารจักรพันธ์ฯ",
+            "line": ["red"]
+        },
+        {
+            "name": "สระว่ายน้ำจุฬาลักษณ์",
+            "line": ["red"]
+        },
+        {
+            "name": "ทางแยกสนามฮอกกี้",
+            "line": ["red"]
+        },
+        {
+            "name": "สนามเทนนิส",
+            "line": ["red"]
+        },
+        {
+            "name": "กองยานพาหนะ",
+            "line": ["red", "blue", "green"]
+        },
+        {
+            "name": "โครงการหลวง",
+            "line": ["red"]
+        },
+        {
+            "name": "หอพักหญิง",
+            "line": ["red"]
+        },
+        {
+            "name": "กองกิจการนิสิต",
+            "line": ["red"]
+        },
+        {
+            "name": "ไปรษณีย์ฯ",
+            "line": ["red", "yellow"]
+        },
+        {
+            "name": "โรงอาหารกลาง 2",
+            "line": ["blue", "pink"]
+        },
+        {
+            "name": "คณะอุสาหกรรมเกษตร 3",
+            "line": ["blue", "green", "yellow", "pink"]
+        },
+        {
+            "name": "KU GREEN",
+            "line": ["blue"]
+        },
+        {
+            "name": "อาคารสารสนเทศ 50 ปี",
+            "line": ["blue", "green"]
+        },
+        {
+            "name": "โรงเรียนสาธิตเกษตร",
+            "line": ["blue"]
+        },
+        {
+            "name": "สำนักการกีฬา",
+            "line": ["blue", "green"]
+        },
+        {
+            "name": "สนามอินทรีจันทรสถิตย์",
+            "line": ["blue"]
+        },
+        {
+            "name": "ประตูงาม 2",
+            "line": ["blue", "green"]
+        },
+        {
+            "name": "สำนักบริการคอมพิวเตอร์",
+            "line": ["blue", "green"]
+        },
+        {
+            "name": "คณะบริหาร",
+            "line": ["blue", "green"]
+        },
+        {
+            "name": "ศูนย์หนังสือ",
+            "line": ["blue"]
+        },
+        {
+            "name": "สำนักพิพิธภัณฑ์",
+            "line": ["green"]
+        },
+        {
+            "name": "คณะประมง",
+            "line": ["green"]
+        },
+        {
+            "name": "คณะสถาปัตยฯ",
+            "line": ["green"]
+        },
+        {
+            "name": "อาคารวิจัยและพัฒนา",
+            "line": ["green", "yellow"]
+        },
+        {
+            "name": "ศุนย์เรียนรวม 1",
+            "line": ["yellow"]
+        },
+        {
+            "name": "คณะมนุษย์ศาสตร์",
+            "line": ["yellow"]
+        },
+        {
+            "name": "คณะสังคมศาสตร์",
+            "line": ["yellow"]
+        },
+        {
+            "name": "คณะศึกษาศาสตร์",
+            "line": ["yellow"]
+        },
+        {
+            "name": "สถาบันค้นคว้าและพัฒนา(RDIPT)",
+            "line": ["yellow"]
+        },
+        {
+            "name": "สถาบันค้นคว้าและวิจัยผลิตภัณฑ์อาหาร",
+            "line": ["yellow"]
+        },
+        {
+            "name": "หอพักนิสิตหญิง ซอยพหลฯ 45",
+            "line": ["pink"]
+        },
+        {
+            "name": "อาคารสวัสดิการ มก.",
+            "line": ["pink"]
+        },
+        {
+            "name": "สถาบันสุขภาพสัตว์",
+            "line": ["pink"]
+        },
+        {
+            "name": "สนง.มาตรฐานสินค้า",
+            "line": ["pink"]
+        },
+        {
+            "name": "กรมการข้าว",
+            "line": ["pink"]
+        },
+        {
+            "name": "คณะเกษตร",
+            "line": ["pink"]
+        }
+    ]
+}

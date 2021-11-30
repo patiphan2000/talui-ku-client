@@ -1,19 +1,22 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import EntryDropdown from './EntryDropdown';
+
 import Stack from '@mui/material/Stack';
 import Grid from '@mui/material/Grid';
 import Card from '@mui/material/Card';
 import CardMedia from '@mui/material/CardMedia';
 import IconButton from '@mui/material/IconButton';
 import CircleIcon from '@mui/icons-material/Circle';
+import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
 
 
 const buttonStyle = {
     borderRadius: 28
 };
 
-const lines = ["green", "red", "blue", "yellow", "black"];
+const lines = ["green", "red", "blue", "yellow", "pink"];
 
-export default function Map({line}) {
+export default function Map() {
 
     const [currentLine, setCurrentLine] = useState("rick");
 
@@ -55,6 +58,38 @@ export default function Map({line}) {
                     }
 
                 </Stack>
+
+                {
+                    currentLine!=="rick"?
+                    <Grid 
+                    container
+                    direction="row"
+                    justifyContent="center"
+                    alignItems="center"
+                    spacing={15}
+                    sx={{ marginTop: '10px' }}>
+                        <Grid item 
+                        justifyContent="center"
+                        alignItems="center">
+                            <EntryDropdown line={currentLine}  />
+                        </Grid>
+
+                        <Grid item 
+                        justifyContent="center"
+                        alignItems="center"
+                        sx={{ width: '2rem' }}>
+                            <ArrowRightAltIcon fontSize="large"/>
+                        </Grid>
+
+                        <Grid item 
+                        justifyContent="center"
+                        alignItems="center">
+                            <EntryDropdown line={currentLine} />
+                        </Grid>
+                    </Grid>
+                    :
+                    <></>
+                }
             </Grid>
         </div>
     )

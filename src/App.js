@@ -5,12 +5,12 @@ import Map from './components/Map';
 
 function App() {
 
-  let line = "map"
-
   return (
     <div className="App">
       <Navbar/>
-      <Map></Map>
+      <div style={{ height: '120vh' }}>
+        <Map></Map>
+      </div>
     </div>
   );
 }
