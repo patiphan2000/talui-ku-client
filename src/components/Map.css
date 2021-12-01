@@ -1,0 +1,17 @@
+.map-image {
+    position: absolute;
+    /* transform: translateY(var(--translate-y, 0));
+    transition: 0.3s; */
+}
+
+.map-image.show {
+    transform: translateY(-4px);
+    opacity: 100;
+    transition: ease-in 0.3s;
+}
+
+.map-image.hide {
+    transform: translateY(0);
+    opacity: 10%;
+    transition: ease-in 0.3s;
+}

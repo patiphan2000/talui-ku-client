@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
-
+import './Map.css'
 import EntryDropdown from './EntryDropdown';
 
 import Stack from '@mui/material/Stack';
@@ -77,10 +77,6 @@ export default function Map() {
         </Alert>
     )
 
-    const updateLine = (color) => {
-        setCurrentLine(color)
-    }
-
     const submitTaluiInfo = async () => {
         if (taluiInfo.entry === "station" || taluiInfo.dest === "station") {
             alertBox.current = (errorAlert);
@@ -101,6 +97,22 @@ export default function Map() {
         return;
     }
 
+    const getShowMapStatus = (line) => {
+        if (currentLine === 'rick') { return 'show' }
+        if (currentLine === line) {
+            return 'show'
+        }
+        return 'hide'
+    }
+
+    const handleSelectLine = (line) => {
+        if (currentLine === line) { 
+            setCurrentLine('rick');
+            return ;
+        }
+        setCurrentLine(line);
+    }
+
     useEffect(() => {
         setTaluiInfo({
             entry: "station",
@@ -118,8 +130,53 @@ export default function Map() {
             >
                 <Card sx={{ marginTop: 5 }}>
                     <CardMedia
+                        className={`map-image ${getShowMapStatus('green')}`}
                         component="img"
-                        image={`/${currentLine}.jpg`}
+                        image={`/green.png`}
+                        alt="Paella dish"
+                        sx={{
+                            width: {xs: 400, sm: 600, lg: 1000}
+                        }}
+                    />
+                    <CardMedia
+                        className={`map-image ${getShowMapStatus('blue')}`}
+                        component="img"
+                        image={`/blue.png`}
+                        alt="Paella dish"
+                        sx={{
+                            width: {xs: 400, sm: 600, lg: 1000}
+                        }}
+                    />
+                    <CardMedia
+                        className={`map-image ${getShowMapStatus('yellow')}`}
+                        component="img"
+                        image={`/yellow.png`}
+                        alt="Paella dish"
+                        sx={{
+                            width: {xs: 400, sm: 600, lg: 1000}
+                        }}
+                    />
+                    <CardMedia
+                        className={`map-image ${getShowMapStatus('red')}`}
+                        component="img"
+                        image={`/red.png`}
+                        alt="Paella dish"
+                        sx={{
+                            width: {xs: 400, sm: 600, lg: 1000}
+                        }}
+                    />
+                    <CardMedia
+                        className={`map-image ${getShowMapStatus('pink')}`}
+                        component="img"
+                        image={`/pink.png`}
+                        alt="Paella dish"
+                        sx={{
+                            width: {xs: 400, sm: 600, lg: 1000}
+                        }}
+                    />
+                    <CardMedia
+                        component="img"
+                        image={`/road.png`}
                         alt="Paella dish"
                         sx={{
                             width: {xs: 400, sm: 600, lg: 1000}
@@ -134,7 +191,7 @@ export default function Map() {
                                 <IconButton 
                                 key={l}
                                 variant="contained" 
-                                onClick={()=>updateLine(l)} 
+                                onClick={() => {handleSelectLine(l)}} 
                                 sx={buttonStyle}>
                                     <CircleIcon fontSize="large" sx={{ color: l }}/>
                                 </IconButton>
