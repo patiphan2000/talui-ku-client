@@ -1,22 +1,18 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { styled, alpha } from '@mui/material/styles';
 import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
-import EditIcon from '@mui/icons-material/Edit';
-import Divider from '@mui/material/Divider';
-import ArchiveIcon from '@mui/icons-material/Archive';
-import FileCopyIcon from '@mui/icons-material/FileCopy';
-import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+
+import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
+import ApartmentIcon from '@mui/icons-material/Apartment';
+import CorporateFareIcon from '@mui/icons-material/CorporateFare';
+import DirectionsBusFilledIcon from '@mui/icons-material/DirectionsBusFilled';
 
 import stationInfo from'../stations.json';
 
-
-
-export default function EntryDropdown({ line, handleClick, entryStaion="ricky" }) {
-
-    const [chooseStation, setChooseStation] = useState("station");
+export default function EntryDropdown({ line, type, talui, setTalui }) {
 
     const StyledMenu = styled((props) => (
       <Menu
@@ -69,6 +65,12 @@ export default function EntryDropdown({ line, handleClick, entryStaion="ricky" }
     setAnchorEl(null);
   };
 
+  const setNewTalui = (stationName) => {
+    let newTalui = talui;
+    newTalui[type] = stationName;
+    setTalui(newTalui);
+  }
+
   return (
     <div>
       <Button
@@ -81,15 +83,16 @@ export default function EntryDropdown({ line, handleClick, entryStaion="ricky" }
         onClick={handleChoose}
         endIcon={<KeyboardArrowDownIcon />}
         sx={{
-            backgroundColor: (line === "rick")? '#808080' : line,
-            "&:hover": {
-                  backgroundColor: (line === "rick")? '#808080' : line,
-                  transform: "translateY(-4px)",
-                  transition: '0.2s'
-            }
+          color: line==="yellow"? 'black':'',
+          backgroundColor: (line === "rick")? '#808080' : line,
+          "&:hover": {
+                backgroundColor: (line === "rick")? '#808080' : line,
+                transform: "translateY(-4px)",
+                transition: '0.2s'
+          }
         }}
       >
-        {chooseStation}
+        {talui[type]}
       </Button>
       <StyledMenu
         id="demo-customized-menu"
@@ -101,18 +104,20 @@ export default function EntryDropdown({ line, handleClick, entryStaion="ricky" }
         onClose={handleClose}
       >
           {
-              stationInfo.stations.map((station) => {
-                  if (station.line.includes(line)) {
-                      return (
-                        <MenuItem onClick={()=>{
-                            handleClose()
-                            setChooseStation(station.name)
-                            }} disableRipple>
-                            <EditIcon />
-                            {station.name}
-                        </MenuItem>
-                      );
-                  }
+              stationInfo.stations.map((station, index) => {
+                if (station.name === talui.entry) { return null; }
+                if (station.line.includes(line)) {
+                    return (
+                      <MenuItem key={index} onClick={()=>{
+                        setNewTalui(station.name)
+                        handleClose();
+                        }} disableRipple>
+                        {<DirectionsBusFilledIcon />}
+                        {station.name}
+                      </MenuItem>
+                    );
+                }
+                return null;
               })
           }
       </StyledMenu>
