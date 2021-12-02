@@ -1,4 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
+import {
+    Link
+  } from "react-router-dom";
 import axios from 'axios';
 import './Map.css'
 import EntryDropdown from './EntryDropdown';
@@ -253,7 +256,13 @@ export default function Map() {
                     :
                     <></>
                 }
-
+                <Button 
+                variant="contained"
+                color="success"
+                component={Link}
+                to="/graph"
+                sx={{ marginTop: '30px' }}
+                >graph</Button>
 
             </Grid>
         </div>

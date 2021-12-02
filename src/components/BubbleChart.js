@@ -10,7 +10,7 @@ export default function BubbleChart({raw}) {
         <Grid container sx={{ height: '100vh' }}>
             <ResponsiveSwarmPlot
                 data={data}
-                groups={[ 'group A' ]}
+                groups={[ 'entry', 'destination' ]}
                 identity="id"
                 value="time"
                 valueFormat=">.2f"
@@ -51,6 +51,22 @@ export default function BubbleChart({raw}) {
                     legend: 'Time',
                     legendPosition: 'middle',
                     legendOffset: 46
+                }}
+                axisRight={{
+                    orient: 'right',
+                    tickSize: 10,
+                    tickPadding: 5,
+                    tickRotation: 0,
+                    legendPosition: 'middle',
+                    legendOffset: 76
+                }}
+                axisLeft={{
+                    orient: 'left',
+                    tickSize: 10,
+                    tickPadding: 5,
+                    tickRotation: 0,
+                    legendPosition: 'middle',
+                    legendOffset: -76
                 }}
             />
         </Grid>
