@@ -13,7 +13,7 @@ export default function BubbleChart({raw}) {
                 groups={[ 'entry', 'destination' ]}
                 identity="id"
                 value="time"
-                valueFormat=">.2f"
+                valueFormat=">-.2f"
                 valueScale={{ type: 'linear', min: 0, max: 24, reverse: false }}
                 size={{ key: 'volume', values: [ 1, 20 ], sizes: [ 20, 100 ] }}
                 layout="horizontal"

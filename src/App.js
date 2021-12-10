@@ -6,6 +6,7 @@ import {
 } from "react-router-dom";
 
 import Navbar from './components/layout/Navbar';
+import Footer from './components/layout/Footer'
 import Map from './components/Map';
 import GraphPage from './components/GraphPage';
 
@@ -28,6 +29,7 @@ function App() {
             </div>
           } />
         </Routes>
+        <Footer />
       </BrowserRouter>
     </div>
   );
