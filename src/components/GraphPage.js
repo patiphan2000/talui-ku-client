@@ -6,52 +6,6 @@ import axios from 'axios';
 import BubbleChart from './BubbleChart'
 import Button from '@mui/material/Button';
 
-import data from './data.json'
-
-const da = [
-    {
-        id: "station A",
-        group: "group A",
-        time: 9,
-        volume: 20
-    },
-    {
-        id: "station A",
-        group: "group A",
-        time: 10,
-        volume: 7
-    },
-    {
-        id: "station B",
-        group: "group A",
-        time: 12,
-        volume: 3
-    },
-    {
-        id: "station C",
-        group: "group A",
-        time: 16,
-        volume: 12
-    },
-    {
-        id: "station A",
-        group: "group A",
-        time: 13,
-        volume: 5
-    },
-    {
-        id: "station C",
-        group: "group A",
-        time: 16,
-        volume: 17
-    },
-    {
-        id: "station D",
-        group: "group A",
-        time: 8,
-        volume: 16
-    }
-]
 
 export default function GraphPage() {
 

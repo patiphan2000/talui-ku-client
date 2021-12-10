@@ -196,7 +196,12 @@ export default function Map() {
                                 variant="contained" 
                                 onClick={() => {handleSelectLine(l)}} 
                                 sx={buttonStyle}>
-                                    <CircleIcon fontSize="large" sx={{ color: l }}/>
+                                    <CircleIcon sx={{ 
+                                        color: l,
+                                        opacity: currentLine==l? '100%':'60%',
+                                        fontSize: currentLine==l? '2.2rem':'2rem',
+                                        transition: '0.2s ease'
+                                        }}/>
                                 </IconButton>
                             );
                         })
