@@ -198,8 +198,8 @@ export default function Map() {
                                 sx={buttonStyle}>
                                     <CircleIcon sx={{ 
                                         color: l,
-                                        opacity: currentLine==l? '100%':'60%',
-                                        fontSize: currentLine==l? '2.2rem':'2rem',
+                                        opacity: currentLine===l? '100%':'60%',
+                                        fontSize: currentLine===l? '2.2rem':'2rem',
                                         transition: '0.2s ease'
                                         }}/>
                                 </IconButton>
@@ -261,14 +261,6 @@ export default function Map() {
                     :
                     <></>
                 }
-                <Button 
-                variant="contained"
-                color="success"
-                component={Link}
-                to="/graph"
-                sx={{ marginTop: '30px' }}
-                >graph</Button>
-
             </Grid>
         </div>
     )

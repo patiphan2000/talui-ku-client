@@ -14,8 +14,8 @@ function App() {
 
   return (
     <div className="App">
-      <Navbar/>
       <BrowserRouter>
+        <Navbar/>
         <Routes>
           <Route path="/" element={
             <div style={{ height: '120vh' }}>

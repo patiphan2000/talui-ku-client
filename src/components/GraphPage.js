@@ -53,13 +53,6 @@ export default function GraphPage() {
             >get data</Button>
 
             <BubbleChart raw={graphData}></BubbleChart>
-
-            <Button 
-            variant="contained" 
-            component={Link}
-            to="/"
-            sx={{ marginTop: '30px' }}
-            >back</Button>
         </div>
     )
 }
