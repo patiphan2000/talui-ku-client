@@ -1,15 +1,15 @@
 import React, { useState } from 'react'
-import {
-    Link
-  } from "react-router-dom";
 import axios from 'axios';
 import BubbleChart from './BubbleChart'
 import Button from '@mui/material/Button';
+import Box from '@mui/material/Box';
+import CircularProgress from '@mui/material/CircularProgress';
 
 
 export default function GraphPage() {
 
     const [graphData, setGraphData] = useState([]);
+    const [loading, setLoading] = useState(false)
 
     const getData = async () => {
         let newData = [];
@@ -42,17 +42,34 @@ export default function GraphPage() {
             })
         }
         setGraphData(newData)
+        setLoading(false)
     }
 
     return (
         <div>
             <Button 
             variant="contained" 
-            onClick={()=>{getData()}}
+            onClick={()=>{
+                setLoading(true);
+                getData();
+            }}
             sx={{ marginTop: '30px', marginRight: '10px' }}
-            >get data</Button>
-
-            <BubbleChart raw={graphData}></BubbleChart>
+            >visualize data</Button>
+            <Box
+            sx={{
+                width: "80vw",
+                marginLeft: "auto",
+                marginRight: "auto"
+            }}>
+                {
+                    loading?
+                    <CircularProgress sx={{
+                        marginTop: "5rem"
+                    }} />
+                    :
+                    <BubbleChart raw={graphData}></BubbleChart>
+                }
+            </Box>
         </div>
     )
 }
