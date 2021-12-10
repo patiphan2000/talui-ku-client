@@ -10,15 +10,19 @@ import Stack from '@mui/material/Stack';
 import Grid from '@mui/material/Grid';
 import Card from '@mui/material/Card';
 import CardMedia from '@mui/material/CardMedia';
+import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import CircleIcon from '@mui/icons-material/Circle';
-import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
 import SendIcon from '@mui/icons-material/Send';
 import Collapse from '@mui/material/Collapse';
 import Alert from '@mui/material/Alert';
 import AlertTitle from '@mui/material/AlertTitle';
 import CloseIcon from '@mui/icons-material/Close';
+import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
+import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
+import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 
 
 const buttonStyle = {
@@ -187,80 +191,113 @@ export default function Map() {
                     />
                 </Card>
 
-                <Stack direction="row" spacing={2} sx={{ marginTop: 5 }}>
-                    {
-                        lines.map((l)=> {
-                            return (
-                                <IconButton 
-                                key={l}
-                                variant="contained" 
-                                onClick={() => {handleSelectLine(l)}} 
-                                sx={buttonStyle}>
-                                    <CircleIcon sx={{ 
-                                        color: l,
-                                        opacity: currentLine===l? '100%':'60%',
-                                        fontSize: currentLine===l? '2.2rem':'2rem',
-                                        transition: '0.2s ease'
-                                        }}/>
-                                </IconButton>
-                            );
-                        })
-                    }
-
-                </Stack>
-
-                {
-                    currentLine!=="rick" ?
-                    <>
-                    <Grid 
-                    container
-                    direction="row"
-                    justifyContent="center"
-                    spac
-                    alignItems="center"
-                    spacing={5}
-                    sx={{ 
-                        marginTop: '10px',
-                        marginBottom: '20px'
+                <Box sx={{ 
+                    width: {xs: "100%", sm: "80%", lg: "60%"},
+                    display: {xs: "flex-row", sm: "flex"}
                     }}>
-                        <Grid item 
-                        justifyContent="center"
-                        alignItems="center">
-                            <EntryDropdown line={currentLine} type="entry" talui={taluiInfo} setTalui={setTaluiInfo} />
-                        </Grid>
-
-                        <Grid item 
+                    <Box sx={{
+                        flexGrow: 1, 
+                    }}>
+                        <Grid
+                        container
+                        direction="row"
                         justifyContent="center"
                         alignItems="center"
-                        sx={{ 
-                            width: '2rem',
-                            marginRight: '2rem'
-                        }}>
-                            <ArrowRightAltIcon fontSize="large"/>
+                        >
+                        <Stack direction="row" spacing={2} sx={{ marginTop: 5 }}>
+                            {
+                                lines.map((l)=> {
+                                    return (
+                                        <IconButton 
+                                        key={l}
+                                        variant="contained" 
+                                        onClick={() => {handleSelectLine(l)}} 
+                                        sx={buttonStyle}>
+                                            <CircleIcon sx={{ 
+                                                color: l,
+                                                opacity: currentLine===l? '100%':'60%',
+                                                fontSize: currentLine===l? '2.2rem':'2rem',
+                                                transition: '0.2s ease'
+                                                }}/>
+                                        </IconButton>
+                                    );
+                                })
+                            }
+
+                        </Stack>
+
+                        {
+                        currentLine!=="rick" ?
+                            <>
+                                <Grid 
+                                container
+                                direction="row"
+                                justifyContent="center"
+                                alignItems="center"
+                                spacing={5}
+                                sx={{ 
+                                    marginTop: '10px',
+                                    marginBottom: '20px'
+                                }}>
+                                    <Grid item 
+                                    justifyContent="center"
+                                    alignItems="center">
+                                        <EntryDropdown line={currentLine} type="entry" talui={taluiInfo} setTalui={setTaluiInfo} />
+                                    </Grid>
+
+                                    <Grid item 
+                                    justifyContent="center"
+                                    alignItems="center"
+                                    sx={{ 
+                                        width: '2rem',
+                                        marginRight: '2rem'
+                                    }}>
+                                        <ArrowRightAltIcon fontSize="large"/>
+                                    </Grid>
+
+                                    <Grid item 
+                                    justifyContent="center"
+                                    alignItems="center">
+                                        <EntryDropdown line={currentLine} type="dest" talui={taluiInfo} setTalui={setTaluiInfo} />
+                                    </Grid>
+                                </Grid>
+
+                                <Collapse in={openAlert}>
+                                    {alertBox.current}
+                                </Collapse>
+
+                                <Button 
+                                variant="contained" 
+                                endIcon={<SendIcon />}
+                                onClick={submitTaluiInfo}
+                                sx={{ marginTop: openAlert? '' : '2rem' }}>
+                                Submit
+                                </Button>
+                            </>
+                            :
+                            <></>
+                        }
                         </Grid>
-
-                        <Grid item 
-                        justifyContent="center"
-                        alignItems="center">
-                            <EntryDropdown line={currentLine} type="dest" talui={taluiInfo} setTalui={setTaluiInfo} />
-                        </Grid>
-                    </Grid>
-
-                    <Collapse in={openAlert}>
-                        {alertBox.current}
-                    </Collapse>
-
-                    <Button 
-                    variant="contained" 
-                    endIcon={<SendIcon />}
-                    onClick={submitTaluiInfo}
-                    sx={{ marginTop: openAlert? '' : '2rem' }}>
-                    Submit
-                    </Button>
-                    </>
-                    :
-                    <></>
-                }
+                    </Box>
+                    <Box sx={{
+                        minWidth: "12rem", 
+                        maxWidth: "80vw",
+                        marginLeft: "auto",
+                        marginRight: "auto"
+                    }}>
+                        <Card sx={{ 
+                            maxHeight: "12rem",
+                            marginTop: {xs: "2rem", sm: "5rem"}, 
+                            backgroundColor: currentLine
+                            }}>
+                            <CardContent>
+                                <Typography variant='h6'>{"current station"}</Typography>
+                                <ArrowDownwardIcon />
+                                <Typography variant='h6'>{"next station"}</Typography>
+                            </CardContent>
+                        </Card>
+                    </Box>
+                </Box>
             </Grid>
         </div>
     )
