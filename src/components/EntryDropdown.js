@@ -4,13 +4,10 @@ import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
-
-import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
-import ApartmentIcon from '@mui/icons-material/Apartment';
-import CorporateFareIcon from '@mui/icons-material/CorporateFare';
 import DirectionsBusFilledIcon from '@mui/icons-material/DirectionsBusFilled';
 
 import stationInfo from'../stations.json';
+
 
 export default function EntryDropdown({ line, type, talui, setTalui }) {
 

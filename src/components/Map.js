@@ -1,7 +1,4 @@
 import React, { useState, useEffect, useRef } from 'react';
-import {
-    Link
-  } from "react-router-dom";
 import axios from 'axios';
 import './Map.css'
 import EntryDropdown from './EntryDropdown';
@@ -126,6 +123,10 @@ export default function Map() {
     const handleSelectLine = async (line) => {
         if (currentLine === line) { 
             setCurrentLine('rick');
+            setTaluiTracker({
+                curr: "current station",
+                next: "next station"
+            })
             return ;
         }
         setCurrentLine(line);
