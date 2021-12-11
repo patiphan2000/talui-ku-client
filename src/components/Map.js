@@ -30,6 +30,13 @@ const buttonStyle = {
 };
 
 const lines = ["green", "red", "blue", "yellow", "pink"];
+const colorNum = {
+    "red": 0,
+    "green": 1,
+    "blue": 2,
+    "yellow": 3,
+    "pink": 4
+}
 
 export default function Map() {
 
@@ -37,6 +44,10 @@ export default function Map() {
     const [taluiInfo, setTaluiInfo] = useState({
         entry: "station",
         dest: "station"
+    })
+    const [taluiTracker, setTaluiTracker] = useState({
+        curr: "current station",
+        next: "next station"
     })
     const [openAlert, setOpenAlert] = useState(false);
 
@@ -112,12 +123,19 @@ export default function Map() {
         return 'hide'
     }
 
-    const handleSelectLine = (line) => {
+    const handleSelectLine = async (line) => {
         if (currentLine === line) { 
             setCurrentLine('rick');
             return ;
         }
         setCurrentLine(line);
+        const res = await axios.get(process.env.REACT_APP_SERVER_URL + `getTracker`);
+        // console.log(res.data[colorNum[line]]);
+        const tracker = res.data[colorNum[line]];
+        setTaluiTracker({
+            curr: tracker.current,
+            next: tracker.next
+        })
     }
 
     useEffect(() => {
@@ -192,7 +210,7 @@ export default function Map() {
                 </Card>
 
                 <Box sx={{ 
-                    width: {xs: "100%", sm: "80%", lg: "60%"},
+                    width: {xs: "100%", sm: "80%", lg: "50%"},
                     display: {xs: "flex-row", sm: "flex"}
                     }}>
                     <Box sx={{
@@ -291,9 +309,9 @@ export default function Map() {
                             backgroundColor: currentLine
                             }}>
                             <CardContent>
-                                <Typography variant='h6'>{"current station"}</Typography>
+                                <Typography variant='h6'>{taluiTracker.curr}</Typography>
                                 <ArrowDownwardIcon />
-                                <Typography variant='h6'>{"next station"}</Typography>
+                                <Typography variant='h6'>{taluiTracker.next}</Typography>
                             </CardContent>
                         </Card>
                     </Box>
